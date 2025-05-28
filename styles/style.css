@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
+  color: #00ffcc;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.glitch {
+  font-size: 2.5rem;
+  position: relative;
+  color: white;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #0ff;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+  top: -2px;
+}
+
+.glitch::after {
+  animation: glitchBottom 3s infinite linear alternate-reverse;
+  top: 2px;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  50% { clip: rect(0, 9999px, 5px, 0); left: 5px; }
+  100% { clip: rect(0, 9999px, 0, 0); left: -5px; }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(5px, 9999px, 9999px, 0); }
+  50% { clip: rect(15px, 9999px, 9999px, 0); left: -5px; }
+  100% { clip: rect(5px, 9999px, 9999px, 0); left: 5px; }
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+main {
+  padding: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #999;
+}
